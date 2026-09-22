@@ -1,5 +1,5 @@
 name: publish
-# Worker for the private repo SJ-suraj/something-new (whose own Actions are blocked by account
+# Worker for the private repo hbk9sj/something-new (whose own Actions are blocked by account
 # billing; public-repo Actions are free). Every 30 min: clone the private repo over a deploy key,
 # process every posts/*/job.json that has no run.md yet (render + gate + release here + Buffer),
 # push run.md/state/stats back. Secrets: PRIVATE_DEPLOY_KEY (write key on something-new),
@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh && printf '%s\n' "${{ secrets.PRIVATE_DEPLOY_KEY }}" > ~/.ssh/private && chmod 600 ~/.ssh/private
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-          git clone -q --depth 1 git@github.com:SJ-suraj/something-new.git work
+          git clone -q --depth 1 git@github.com:hbk9sj/something-new.git work
       - name: pending jobs
         id: pending
         env: { FORCE: "${{ inputs.folder }}" }
