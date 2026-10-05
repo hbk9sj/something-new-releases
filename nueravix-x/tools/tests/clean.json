@@ -1,0 +1,21 @@
+{
+ "drafts": [
+  {
+   "id": "orig",
+   "kind": "original",
+   "time": "2026-10-06T13:30:00+00:00",
+   "parts": [
+    "Nine MCP servers cost 36,320 tokens of tool definitions on 9 Sep and 38,738 on 22 Sep. One server, firecrawl-mcp, caused 2,094 of the rise while its tool count stayed at 27."
+   ],
+   "finding_id": "mcp-tool-defs-sep"
+  },
+  {
+   "id": "C",
+   "kind": "reply",
+   "time": "2026-10-06T14:00:00+00:00",
+   "parts": [
+    "@agentbuilder Did latency track the tool count or the token count? Tool descriptions vary a lot in length, so cutting 60 tools to 12 could remove far more or far fewer tokens than 80%."
+   ]
+  }
+ ]
+}

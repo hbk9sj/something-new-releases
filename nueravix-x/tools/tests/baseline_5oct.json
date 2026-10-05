@@ -1,0 +1,37 @@
+{
+ "drafts": [
+  {
+   "id": "orig",
+   "kind": "original",
+   "time": "2026-10-05T13:30:00+00:00",
+   "parts": [
+    "Same nine MCP servers, 9 Sep vs 22 Sep. Tool definitions: 36,320 tokens, then 38,738 (+2,418, +6.7%, o200k_base).\n\n2,094 came from one server that added no tools. firecrawl-mcp stayed at 27; firecrawl_scrape's description went from 1,110 to 4,458 chars.\n\nhttps://medium.com/x"
+   ],
+   "finding_id": "baseline_5oct-orig"
+  },
+  {
+   "id": "A",
+   "kind": "reply",
+   "time": "2026-10-05T13:33:00+00:00",
+   "parts": [
+    "@bigaiaccount We measured it on the same nine MCP servers, 13 days apart: 36,320 tokens of tool definitions on 9 Sep, 38,738 on 22 Sep (o200k_base).\n\nThe surprise: 2,094 of the +2,418 came from one server that added no tools. Its descriptions just got longer.\n\nMethod: https://medium.com/x"
+   ]
+  },
+  {
+   "id": "C",
+   "kind": "reply",
+   "time": "2026-10-05T13:50:00+00:00",
+   "parts": [
+    "@agentbuilder Did you count tokens as well as tools? 60 to 12 is an 80% cut in tools, but descriptions vary so much in length that the token cut could be far bigger or smaller. We have seen a server's definitions grow with its tool count unchanged. Did latency track tools or tokens?"
+   ]
+  },
+  {
+   "id": "D",
+   "kind": "reply",
+   "time": "2026-10-05T14:10:00+00:00",
+   "parts": [
+    "@smallaccount We haven't measured playwright mcp, so no verdict. One firecrawl fact for the comparison: from 9 to 22 Sep its tool definitions grew by 2,094 tokens with no new tools. firecrawl_scrape's description alone went from 1,110 to 4,458 characters. Worth counting both before choosing."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "drafts": [
+  {
+   "id": "A",
+   "kind": "reply",
+   "parts": [
+    "@alice Nine MCP servers, but only two of them ever returned a schema we could validate."
+   ],
+   "time": "2026-10-05T13:30:00+00:00"
+  },
+  {
+   "id": "B",
+   "kind": "reply",
+   "parts": [
+    "@bob Nine MCP servers in that list, and the latency numbers depend on which one you call first."
+   ],
+   "time": "2026-10-05T15:30:00+00:00"
+  }
+ ]
+}

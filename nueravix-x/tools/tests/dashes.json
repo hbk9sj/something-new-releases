@@ -1,0 +1,13 @@
+{
+ "drafts": [
+  {
+   "id": "dash",
+   "kind": "original",
+   "parts": [
+    "We counted 4,812 tool calls across 37 agent runs \u2014\u201c\u201d\u2014\u201c\u201d and found that xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   ],
+   "time": "2026-10-05T13:30:00+00:00",
+   "finding_id": "dashes-dash"
+  }
+ ]
+}

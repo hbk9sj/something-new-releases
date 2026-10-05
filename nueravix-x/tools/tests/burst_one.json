@@ -1,0 +1,12 @@
+{
+ "drafts": [
+  {
+   "id": "TraffAlex",
+   "kind": "reply",
+   "time": "2026-09-09T13:17:26+00:00",
+   "parts": [
+    "@TraffAlex The paper names the version: it says it establishes \"alternative (C)\" of Fefferman's problem statement, and (D) on T3. Those two permit \"a smooth f(x, t)\". (A) and (B), existence and smoothness, take f identically zero."
+   ]
+  }
+ ]
+}
