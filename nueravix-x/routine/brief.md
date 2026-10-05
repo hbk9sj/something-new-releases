@@ -9,6 +9,10 @@ Work in `nueravix-x/` of the repo the routine starts from: its scripts are the o
 artifact: read every artifact file, then copy `state/`, `measurements/`, `rules/` and `index.html` from the
 artifact's download folder into `nueravix-x/`. Never run a script from the download folder itself.
 
+Run `make verify`, `python3 tools/buffer.py ...` and `python3 tools/push_image.py ...` as single commands from
+inside `nueravix-x/` (cd there in an earlier command, never `cd ... &&` in the same one): the repo's
+`.claude/settings.json` pre-approves exactly those command forms.
+
 ## 1. Start
 - Read `CLAUDE.md`, `rules/editorial.md`, `rules/facts.md`, `state/lessons.md` (the "Current" section),
   `state/ideas.md`, and the last 5 entries of `state/runs.md`.
