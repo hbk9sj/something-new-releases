@@ -19,6 +19,11 @@ Asked for by the owner, 5 Oct 2026: "go ahead and do it, fix both" (accepted as 
 - `buffer.py publish` attaches the image (top level, and on thread part 1) with its alt text.
 - Images run as one experiment, `proof-image` vs `baseline` (text only), judged by `tools/review.py`.
 
+## Addition (5 Oct 2026, owner: "lets test it once, release something now")
+- `buffer.py publish --now` posts exactly one original immediately (Buffer `shareNow`, no `dueAt`), skipping the
+  local 10-scheduled room check because the post is not queued; Buffer refuses it if its limit still applies.
+  Allowed only when the owner's prompt for that run asks for it (CLAUDE.md, Account).
+
 ## Checks
 - `make verify` passes with new fixtures: image_ok (PASS) and image_bad (FAIL).
 - `push_image.py` tested once from this machine on a throwaway `claude/` branch: URL returns 200 image/png.

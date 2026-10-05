@@ -4,6 +4,7 @@ usage:
   python3 tools/buffer.py check                  # channel exists, right X account, connected, not locked
   python3 tools/buffer.py sync                   # pull every post on the channel into state/, with metrics
   python3 tools/buffer.py publish DRAFTS.json    # schedule drafts that pass the checker (see publish())
+  python3 tools/buffer.py publish DRAFTS.json --now   # post one draft immediately; only when the owner asks
 
 Auth: in the x-posting cloud environment the agent proxy adds the key for api.buffer.com, so no header is
 sent. Elsewhere, set BUFFER_ACCESS_TOKEN. The key is never printed, logged or written to a file.
@@ -117,8 +118,8 @@ def sync():
     return cid, remote, unresolved
 
 
-def publish(path):
-    """Schedule each draft once. Order: checker -> sync -> room check -> write intent -> create -> record."""
+def publish(path, now_mode=False):
+    """Schedule each draft once (or, with now_mode, post exactly one draft immediately). Order: checker -> sync -> room check -> write intent -> create -> record."""
     chk = subprocess.run([sys.executable, str(ROOT / "tools/check_x_draft.py"), path, str(HISTORY)])
     if chk.returncode:
         raise SystemExit("STOP: checker did not pass")
@@ -126,6 +127,10 @@ def publish(path):
     if unresolved:
         raise SystemExit(f"STOP: earlier creates with unknown outcome {unresolved}. Check Buffer by hand; never resend")
     room = MAX_SCHEDULED - sum(p["status"] == "scheduled" for p in remote)
+    if now_mode:
+        if sum(d["kind"] == "original" for d in json.loads(Path(path).read_text())["drafts"]) != 1:
+            raise SystemExit("STOP: --now posts exactly one original draft")
+        room = 1   # posted at once, not queued: Buffer's 10-scheduled limit should not apply (it refuses if it does)
     texts = {p["text"] for p in remote}
     for d in json.loads(Path(path).read_text())["drafts"]:
         if d["kind"] != "original":
@@ -145,6 +150,9 @@ def publish(path):
         save(hist)   # the intent is on disk before the request leaves
         inp = {"channelId": cid, "text": d["parts"][0], "schedulingType": "automatic",
                "mode": "customScheduled", "dueAt": d["time"]}
+        if now_mode:
+            inp["mode"] = "shareNow"
+            del inp["dueAt"]
         assets = ([{"image": {"url": d["image"]["url"], "metadata": {"altText": d["image"]["alt"]}}}]
                   if d.get("image") else [])
         inp["assets"] = assets
@@ -176,6 +184,6 @@ if __name__ == "__main__":
     elif cmd == "sync":
         sync()
     elif cmd == "publish" and len(sys.argv) > 2:
-        publish(sys.argv[2])
+        publish(sys.argv[2], now_mode="--now" in sys.argv[3:])
     else:
         raise SystemExit(__doc__)
