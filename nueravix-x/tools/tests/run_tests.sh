@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 ok=1
 check() {  # expected-exit phrase drafts history
-  out=$(python3 ../check_x_draft.py "$3" "$4" 2>&1); got=$?
+  out=$(python3 -I -S -B ../check_x_draft.py "$3" "$4" 2>&1); got=$?
   if [ "$got" = "$1" ] && grep -q -- "$2" <<<"$out"; then echo "ok   $3 $4"; else echo "BAD  $3 $4 (expected $1 + '$2', got $got)"; echo "$out" | sed 's/^/     /'; ok=0; fi
 }
 check 1 "near-duplicate"        burst_9sep.json     empty_history.json    # 9 Sep reply burst
@@ -21,5 +21,5 @@ check 0 "PASS"                  image_ok.json       empty_history.json    # proo
 check 1 "image url"             image_bad.json      empty_history.json    # branch URL, outside images/, no alt text
 check 1 "alt text"              image_bad.json      empty_history.json
 check 1 "image url"             image_traversal.json empty_history.json   # ../ out of images/
-python3 ../check_x_draft.py clean.json >/dev/null 2>&1; [ $? = 1 ] && echo "ok   no history -> FAIL" || { echo "BAD  no history passed"; ok=0; }
+python3 -I -S -B ../check_x_draft.py clean.json >/dev/null 2>&1; [ $? = 1 ] && echo "ok   no history -> FAIL" || { echo "BAD  no history passed"; ok=0; }
 [ $ok = 1 ] && echo "all tests pass" || { echo "TESTS FAILED"; exit 1; }

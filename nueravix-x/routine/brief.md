@@ -11,11 +11,11 @@ artifact's download folder into `nueravix-x/`. Never run a script from the downl
 
 In a cloud run, use exactly these command forms, each as its own command (no `cd ... &&`, no pipes); the repo's
 `.claude/settings.json` pre-approves them and blocks every shell command if `tools/` or `Makefile` differ from
-`origin/bootstrap`, so never edit them:
+the SHA-256 manifest it holds, so never edit them or add files there:
 - `make -C /home/user/something-new-releases/nueravix-x verify`
-- `python3 /home/user/something-new-releases/nueravix-x/tools/buffer.py sync`
-- `python3 /home/user/something-new-releases/nueravix-x/tools/buffer.py publish /home/user/something-new-releases/nueravix-x/state/drafts/<YYYYMMDD>.json`
-- `python3 /home/user/something-new-releases/nueravix-x/tools/push_image.py images/<YYYYMMDD>/<finding_id>.png`
+- `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/buffer.py sync`
+- `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/buffer.py publish /home/user/something-new-releases/nueravix-x/state/drafts/<YYYYMMDD>.json`
+- `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/push_image.py images/<YYYYMMDD>/<finding_id>.png`
 
 ## 1. Start
 - Read `CLAUDE.md`, `rules/editorial.md`, `rules/facts.md`, `state/lessons.md` (the "Current" section),

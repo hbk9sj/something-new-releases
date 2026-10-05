@@ -120,7 +120,7 @@ def sync():
 
 def publish(path, now_mode=False):
     """Schedule each draft once (or, with now_mode, post exactly one draft immediately). Order: checker -> sync -> room check -> write intent -> create -> record."""
-    chk = subprocess.run([sys.executable, str(ROOT / "tools/check_x_draft.py"), path, str(HISTORY)])
+    chk = subprocess.run([sys.executable, "-I", "-S", "-B", str(ROOT / "tools/check_x_draft.py"), path, str(HISTORY)])
     if chk.returncode:
         raise SystemExit("STOP: checker did not pass")
     cid, remote, unresolved = sync()
