@@ -24,6 +24,7 @@ wrong, write the case in `state/proposals.md` and carry on without it.
 - Never delete, edit or reschedule a Buffer post. A wrong post gets a visible correction, made by the owner.
 - An `unknown` or `intent` entry in `state/history.json` blocks publishing until `sync` resolves it. Never resend.
 - At most 10 scheduled posts on the channel, ever (Buffer free plan).
+- `publish --now` posts one draft immediately. Use it only when the owner's prompt for that run asks for it.
 - Never log in anywhere, never handle a password. The Buffer key is added by the environment's proxy; never
   print, store or ask for it.
 
