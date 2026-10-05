@@ -20,5 +20,6 @@ check 1 "needs a finding_id"    no_finding_id.json  empty_history.json    # orig
 check 0 "PASS"                  image_ok.json       empty_history.json    # proof image: pinned raw URL + alt text
 check 1 "image url"             image_bad.json      empty_history.json    # branch URL, outside images/, no alt text
 check 1 "alt text"              image_bad.json      empty_history.json
+check 1 "image url"             image_traversal.json empty_history.json   # ../ out of images/
 python3 ../check_x_draft.py clean.json >/dev/null 2>&1; [ $? = 1 ] && echo "ok   no history -> FAIL" || { echo "BAD  no history passed"; ok=0; }
 [ $ok = 1 ] && echo "all tests pass" || { echo "TESTS FAILED"; exit 1; }

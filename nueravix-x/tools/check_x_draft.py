@@ -27,7 +27,7 @@ STOP = set("the a an of to in on and or is are was it its that this for with as 
 ONE = ((0, 0x10FF), (0x2000, 0x200D), (0x2010, 0x201F), (0x2032, 0x2037))  # twitter-text config v3: weight 1
 KINDS = {"original", "reply", "thread"}
 IMAGE_URL = re.compile(r"https://raw\.githubusercontent\.com/hbk9sj/something-new-releases/[0-9a-f]{40}"
-                       r"/nueravix-x/images/[\w./-]+\.png")   # pinned to a commit, so it never changes
+                       r"/nueravix-x/images/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+\.png")   # pinned to a commit; no ../
 ALT_MAX = 1000   # X's alt-text limit
 
 
