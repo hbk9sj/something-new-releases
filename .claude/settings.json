@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make verify)",
+      "Bash(python3 tools/buffer.py check)",
+      "Bash(python3 tools/buffer.py sync)",
+      "Bash(python3 tools/buffer.py publish state/drafts/*)",
+      "Bash(python3 tools/push_image.py images/*)"
+    ]
+  }
+}
