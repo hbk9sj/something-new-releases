@@ -12,9 +12,9 @@ ALLOW = [
     f"Bash({PY} {R}/tools/buffer.py check)",
     f"Bash({PY} {R}/tools/buffer.py sync)",
     f"Bash({PY} {R}/tools/buffer.py publish {R}/state/drafts/*)",
-    f"Bash({PY} {R}/tools/push_image.py images/*)",
 ]
 
+assert not any(p.is_symlink() for p in Path("nueravix-x").rglob("*")), "no symlinks"
 files = sorted([p for p in Path("nueravix-x/tools").rglob("*") if p.is_file()] + [Path("nueravix-x/Makefile")],
                key=lambda p: p.as_posix().encode())
 assert not any("__pycache__" in p.parts for p in files), "remove __pycache__ first"
@@ -26,9 +26,10 @@ read_allow_hash = ("import json, hashlib; s = json.load(open('.claude/settings.j
 guard = "; ".join([
     'cd "$CLAUDE_PROJECT_DIR" || exit 2',
     'H=sha256sum; command -v sha256sum >/dev/null 2>&1 || H="shasum -a 256"',
-    'got=$(find nueravix-x/tools nueravix-x/Makefile -type f | LC_ALL=C sort | while IFS= read -r f; do $H "$f"; done)',
+    'got=$(find nueravix-x/tools nueravix-x/Makefile ! -type d | LC_ALL=C sort | while IFS= read -r f; do $H "$f" 2>/dev/null || echo "unreadable  $f"; done)',
     f"want='{manifest}'",
     '[ "$got" = "$want" ] || { echo "blocked: nueravix-x/tools or nueravix-x/Makefile differ from the manifest" >&2; exit 2; }',
+    '[ -z "$(find nueravix-x -type l)" ] || { echo "blocked: symlink inside nueravix-x" >&2; exit 2; }',
     '! ls -A nueravix-x | grep -qFx -e GNUmakefile -e makefile || { echo "blocked: unexpected GNUmakefile or makefile in nueravix-x" >&2; exit 2; }',
     f'a=$(python3 -I -S -B -c "{read_allow_hash}" 2>/dev/null)',
     f'[ "$a" = "{allow_hash}" ] || {{ echo "blocked: the allow rules in .claude/settings.json changed" >&2; exit 2; }}',
