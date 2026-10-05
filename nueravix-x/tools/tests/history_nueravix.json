@@ -1,0 +1,82 @@
+[
+ {
+  "id": "2102800168450162788",
+  "createdAt": "Wed Sep 23 16:40:02 +0000 2026",
+  "text": "Nine MCP servers cost 36,320 tokens of tool definitions on 9 September. Same probe, same servers, 22 September: 38,738. Up 2,418 tokens in thirteen days, 6.7%. One server caused 2,094 of it, and its tool count did not move: 27 tools before, 27 after.",
+  "kind": "original",
+  "finding_id": "mcp-tool-defs-sep"
+ },
+ {
+  "id": "2102800170794836329",
+  "createdAt": "Wed Sep 23 16:40:03 +0000 2026",
+  "text": "The server that moved is firecrawl-mcp. Existing tool definitions grew 2,225 tokens; a two-for-two tool swap gave back 131. firecrawl_scrape's description alone went from 1,110 characters to 4,458.\n\nFive servers shipped nothing and re-probed identical.\n\nhttps://t.co/8nkfcIiwyH",
+  "kind": "reply"
+ },
+ {
+  "id": "2099175594064007562",
+  "createdAt": "Sun Sep 13 16:37:17 +0000 2026",
+  "text": "841 task configs in lm-evaluation-harness name a dataset. Exactly one sets a revision field, and its value is refs/convert/parquet \u2014 a format pointer, not a version pin. If a dataset changed under a benchmark score, nothing in the suite would record it.",
+  "kind": "original",
+  "finding_id": "lm-eval-revision-pins"
+ },
+ {
+  "id": "2099112797779239221",
+  "createdAt": "Sun Sep 13 12:27:45 +0000 2026",
+  "text": "@rohanpaul_ai 6x from the harness alone matches what we found in pricing. A \"43% lower cost\" launch claim measured estimated API cost in the configurations shown; the token rate moved the other way, $10/$50 per 1M against $4/$20. Same lesson: the number describes the setup, not the model.",
+  "kind": "reply"
+ },
+ {
+  "id": "2099112458791326059",
+  "createdAt": "Sun Sep 13 12:26:24 +0000 2026",
+  "text": "@akshay_pachaar The branching case is what most explainers skip: requests 1 and 2 share three nodes while 3 forks at the repo. The number we can never find published is the real prefix hit rate on a production coding assistant, and what share of misses are eviction rather than true divergence.",
+  "kind": "reply"
+ },
+ {
+  "id": "2099112255719944503",
+  "createdAt": "Sun Sep 13 12:25:36 +0000 2026",
+  "text": "@meggmcnulty The heterogeneity starts before the hardware. We filled the same 1,050,000-token window twice: 3.96 MB of English technical prose, 1.82 MB of machine logs. Same context limit, 2.2x difference in bytes admitted. Capacity planning per request is guessing at content type.",
+  "kind": "reply"
+ },
+ {
+  "id": "2099111738679738405",
+  "createdAt": "Sun Sep 13 12:23:32 +0000 2026",
+  "text": "@penberg The \"few hundred lines of Python calling into layers nobody can grasp\" framing is the part worth measuring. Do you have a line count for the full stack you built - model, ISA, compiler, simulator - against those few hundred? That ratio is the honest size of the abstraction.",
+  "kind": "reply"
+ },
+ {
+  "id": "2099110912166895917",
+  "createdAt": "Sun Sep 13 12:20:15 +0000 2026",
+  "text": "@rieszspieces This is measurable, and the gap is real. In the Lean Fermat repo at commit aa2d8b3 the median proof step is 8 lines against Mathlib's 4; mean 17.2 vs 6.2. Human-written Mathlib is optimised for a reader. Certificate-shaped proofs are optimised for the checker.",
+  "kind": "reply"
+ },
+ {
+  "id": "2098885338664226832",
+  "createdAt": "Sat Sep 12 21:23:54 +0000 2026",
+  "text": "@RobHoffman_ The \"no mention needed\" part matches what we counted: across 1,900,000 words of official vendor documentation, only 6.51% of sentences were quotable as standalone answers. Sentence shape looks to matter more than domain authority, which would explain a post outranking the docs.",
+  "kind": "reply"
+ },
+ {
+  "id": "2098885020253577562",
+  "createdAt": "Sat Sep 12 21:22:38 +0000 2026",
+  "text": "@iamgingertrash One number for the displacement clock: on Sep 7 we recorded Astra at $10.00/$50.00 per 1M tokens against Sol's $4.00/$20.00 \u2014 2.5x, same vendor, both still sold. Displacement moves a model down the price ladder rather than off it, which stretches the recoup window.",
+  "kind": "reply"
+ },
+ {
+  "id": "2098884734596403236",
+  "createdAt": "Sat Sep 12 21:21:30 +0000 2026",
+  "text": "@littmath On \"who would understand it\" \u2014 we counted the Lean-checked Fermat repo against Mathlib at commit aa2d8b3, Lean 4.33.1: 13,499,380 lines, 562,341 declarations to Mathlib's 185,411, median proof step 8 lines against 4. Machine-checkable scale and readable scale came apart.",
+  "kind": "reply"
+ },
+ {
+  "id": "2098884469122117786",
+  "createdAt": "Sat Sep 12 21:20:27 +0000 2026",
+  "text": "@QuantaMagazine Four statements, not one: Clay's official problem description gives two that take f(x,t) \u2261 0 (existence and smoothness) and two that allow a forcing term subject to the decay conditions (5) and (9). We read them on Sep 9 \u2014 which of the four a blowup targets is worth checking.",
+  "kind": "reply"
+ },
+ {
+  "id": "2097311999197892987",
+  "createdAt": "Tue Sep 08 13:12:01 +0000 2026",
+  "text": "@pauliusztin_ One number for the harness budget: 116 tools across 9 servers cost 38,900 tokens \u2014 19.4% of a 200k window before the first user message. One server is 45.0% of that, and 93.6% of its cost is JSON Schema, 2.5% description. o200k_base, 3 Sep.",
+  "kind": "reply"
+ }
+]

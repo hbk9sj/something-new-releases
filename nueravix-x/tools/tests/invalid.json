@@ -1,0 +1,28 @@
+{
+ "drafts": [
+  {
+   "id": "A",
+   "kind": "reply",
+   "parts": [
+    "@a Same text here about 4,812 calls"
+   ],
+   "time": "2026-10-05T13:00:00+00:00"
+  },
+  {
+   "id": "A",
+   "kind": "reply",
+   "parts": [
+    "@b Other words entirely, 37 runs"
+   ],
+   "time": "2026-10-05T14:00:00+00:00"
+  },
+  {
+   "id": "B",
+   "kind": "reply",
+   "parts": [
+    "@c   "
+   ],
+   "time": "2026-10-05T15:00:00+00:00"
+  }
+ ]
+}

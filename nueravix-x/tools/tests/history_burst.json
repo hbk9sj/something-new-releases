@@ -1,0 +1,20 @@
+[
+ {
+  "id": "Flextor97",
+  "kind": "reply",
+  "createdAt": "2026-09-09T13:14:08+00:00",
+  "text": "@Flextor97 The paper names the alternative: \"This establishes alternative (C) in the Millennium problem statement for Navier-Stokes as stated by Fefferman\", plus (D) on T3. (C) and (D) permit \"a smooth f(x, t)\". Only (A) and (B) take f identically zero, so forcing isn't the disqualifier."
+ },
+ {
+  "id": "shodinfire",
+  "kind": "reply",
+  "createdAt": "2026-09-09T13:15:31+00:00",
+  "text": "@shodinfire Scope note worth having: the paper says it establishes \"alternative (C)\" and (D) of Fefferman's problem statement. Those are the breakdown cases. Existence and smoothness are (A) and (B), which take \"f(x, t) to be identically zero\" \u2014 untouched by this."
+ },
+ {
+  "id": "ishangupta_1",
+  "kind": "reply",
+  "createdAt": "2026-09-09T13:16:26+00:00",
+  "text": "@ishangupta_1 One detail from the paper rather than the timeline: it claims \"alternative (C)\" and (D) of Fefferman's statement, not (A) or (B). (C) and (D) permit \"a smooth f(x, t)\"; (A) and (B) take f identically zero. Most of the scope argument sits on that split."
+ }
+]
