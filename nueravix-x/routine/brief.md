@@ -73,10 +73,10 @@ For each picked topic, up to the budget:
    is the method with source, version or commit, sample size and date.
 3. Proof image, only for a draft in the image arm of the current experiment (`state/lessons.md`, "Current"):
    draw one chart from the measurement's own output with matplotlib (`pip install matplotlib` if missing), at
-   1600x900 px, the headline number largest, a method line with source and date, "Decoding AI" in a corner. Save
+   1600x900 px, the headline number largest, a method line with source and date, "Decoding SI" in a corner. Save
    it as `images/<YYYYMMDD>/<finding_id>.png`, open it with Read and look: no clipped or overlapping labels,
    readable at 400 px wide. Then `python3 tools/push_image.py images/<YYYYMMDD>/<finding_id>.png` and put the
-   printed URL in the draft as `"image": {"url": ..., "alt": ...}`; alt text states the finding and its number.
+   printed URL in the draft as `"image": {"url": ..., "alt": ...}`; alt text opens "Chart by Decoding SI:" and states the finding and its number.
    If the chart cannot be made right, post the draft without one and say so in the run entry.
 4. Put drafts in `state/drafts/<YYYYMMDD>.json` (format at the top of `tools/check_x_draft.py`), each with
    `finding_id`, `time` (an open slot, ISO UTC), `topic` (pillar), `format` (single | thread), `experiment`,

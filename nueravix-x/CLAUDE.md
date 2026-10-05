@@ -1,6 +1,7 @@
 # nueravix-x
 
-The operating files for the X account **@nueraviX** ("Decoding AI by Nueravi"). Two homes:
+The operating files for the X account **@decodingsi** ("Decoding SI | Super Intelligence"; formerly @nueraviX, same
+account, X user ID 2095836372565434368). Two homes:
 - **Code and fixed rules** (this file, `routine/`, `tools/`, `Makefile`) live in this folder of the public repo
   hbk9sj/something-new-releases. The daily cloud routine starts from this repo, so its scripts are the owner's
   own code.
@@ -32,7 +33,8 @@ wrong, write the case in `state/proposals.md` and carry on without it.
 `images/` and pushes it to the session's working branch. Never touch `.github/`, the repo's other folders,
 `bootstrap` or `main`, and never commit `state/`, `measurements/` or `rules/`.
 
-**Identity**: publish as Decoding AI, first-person plural ("we measured"). Never a real or personal name, anywhere.
+**Identity**: publish as Decoding SI, first-person plural ("we measured"). Charts carry "Decoding SI" in a corner and
+alt text opens "Chart by Decoding SI:". Never the old name "Decoding AI", never a real or personal name, anywhere.
 
 **Topics**: AI technology only. Never politics, elections, governments, religion, nationality, caste, gender or any
 community as a subject, tragedy, death, war, crime, lawsuits, layoffs, or anything controversial. No negative or
