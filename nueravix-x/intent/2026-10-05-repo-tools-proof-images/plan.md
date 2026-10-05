@@ -37,6 +37,14 @@ edits need no approval) or run a look-alike `tools/buffer.py` elsewhere, then ex
 name absolute paths, and a PreToolUse hook blocks every Bash command while `nueravix-x/tools`, `nueravix-x/Makefile`
 (tracked, untracked or ignored files, except `__pycache__/`) or `.claude/settings.json` differ from `origin/bootstrap`.
 
+## Addition 4 (5 Oct 2026): guard without git, Python isolated
+The security review of addition 3 found two bypasses: the guard trusted git (a run could move `origin/bootstrap`
+locally or set a git option that runs code), and Python could load planted code (`sitecustomize`, `.pth`, a cached
+`.pyc`). Now the hook compares SHA-256 hashes of every file under `nueravix-x/tools` and `nueravix-x/Makefile`
+against a manifest embedded in `.claude/settings.json` (writes there go to the classifier), with no git involved;
+every Python launch uses `-I -S -B` (isolated, no site module, no bytecode). After changing those files, run
+`python3 .claude/make_guard.py` from the repo root to rebuild the manifest.
+
 ## Checks
 - `make verify` passes with new fixtures: image_ok (PASS) and image_bad (FAIL).
 - `push_image.py` tested once from this machine on a throwaway `claude/` branch: URL returns 200 image/png.
