@@ -45,6 +45,12 @@ against a manifest embedded in `.claude/settings.json` (writes there go to the c
 every Python launch uses `-I -S -B` (isolated, no site module, no bytecode). After changing those files, run
 `python3 .claude/make_guard.py` from the repo root to rebuild the manifest.
 
+## Addition 5 (5 Oct 2026): third security review
+Gaps closed: `make` would also read a planted `GNUmakefile`/`makefile` (now `make -f <abs>/Makefile`, and the hook
+blocks if either name exists); `push_image.py`'s git calls could run repo-configured hooks or fsmonitor (now
+`core.hooksPath=/dev/null`, `core.fsmonitor=false`, `commit --no-verify`); the version-5 hook had dropped the check
+on the allow rules themselves (now it hashes `permissions.allow` against the value embedded at generation).
+
 ## Checks
 - `make verify` passes with new fixtures: image_ok (PASS) and image_bad (FAIL).
 - `push_image.py` tested once from this machine on a throwaway `claude/` branch: URL returns 200 image/png.

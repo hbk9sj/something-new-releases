@@ -12,7 +12,7 @@ artifact's download folder into `nueravix-x/`. Never run a script from the downl
 In a cloud run, use exactly these command forms, each as its own command (no `cd ... &&`, no pipes); the repo's
 `.claude/settings.json` pre-approves them and blocks every shell command if `tools/` or `Makefile` differ from
 the SHA-256 manifest it holds, so never edit them or add files there:
-- `make -C /home/user/something-new-releases/nueravix-x verify`
+- `make -f /home/user/something-new-releases/nueravix-x/Makefile -C /home/user/something-new-releases/nueravix-x verify`
 - `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/buffer.py sync`
 - `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/buffer.py publish /home/user/something-new-releases/nueravix-x/state/drafts/<YYYYMMDD>.json`
 - `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/push_image.py images/<YYYYMMDD>/<finding_id>.png`
