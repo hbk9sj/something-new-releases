@@ -10,12 +10,12 @@ artifact: read every artifact file, then copy `state/`, `measurements/`, `rules/
 artifact's download folder into `nueravix-x/`. Never run a script from the download folder itself.
 
 In a cloud run, use exactly these command forms, each as its own command (no `cd ... &&`, no pipes); the repo's
-`.claude/settings.json` pre-approves them and blocks every shell command if `tools/` or `Makefile` differ from
+`.claude/settings.json` pre-approves them (the image push in step 5.3 is not pre-approved: git can run
+repo-configured code, so the session's safety check reviews it) and blocks every shell command if `tools/` or `Makefile` differ from
 the SHA-256 manifest it holds, so never edit them or add files there:
 - `make -f /home/user/something-new-releases/nueravix-x/Makefile -C /home/user/something-new-releases/nueravix-x verify`
 - `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/buffer.py sync`
 - `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/buffer.py publish /home/user/something-new-releases/nueravix-x/state/drafts/<YYYYMMDD>.json`
-- `python3 -I -S -B /home/user/something-new-releases/nueravix-x/tools/push_image.py images/<YYYYMMDD>/<finding_id>.png`
 
 ## 1. Start
 - Read `CLAUDE.md`, `rules/editorial.md`, `rules/facts.md`, `state/lessons.md` (the "Current" section),

@@ -51,6 +51,14 @@ blocks if either name exists); `push_image.py`'s git calls could run repo-config
 `core.hooksPath=/dev/null`, `core.fsmonitor=false`, `commit --no-verify`); the version-5 hook had dropped the check
 on the allow rules themselves (now it hashes `permissions.allow` against the value embedded at generation).
 
+## Addition 6 (5 Oct 2026): fourth security review, and where this stops
+Findings: git can run repo-configured code in more ways than `-c` flags can close (credential helpers, clean
+filters via .gitattributes, signing programs), and the hash check skipped symlinks (`find -type f`). Changes:
+`push_image.py` is no longer pre-approved (cloud pushes return 403 anyway), and the check lists every non-directory
+entry, so a planted symlink fails it. Accepted residual risk, not closable by a pre-command hook: a background
+process swapping a file between the check and the run, or a replaced `python3`/`make` on PATH. Both need
+preparatory actions outside the pre-approved set, which the classifier reviews.
+
 ## Checks
 - `make verify` passes with new fixtures: image_ok (PASS) and image_bad (FAIL).
 - `push_image.py` tested once from this machine on a throwaway `claude/` branch: URL returns 200 image/png.
