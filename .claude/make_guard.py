@@ -29,8 +29,10 @@ guard = "; ".join([
     'got=$(find nueravix-x/tools nueravix-x/Makefile ! -type d | LC_ALL=C sort | while IFS= read -r f; do $H "$f" 2>/dev/null || echo "unreadable  $f"; done)',
     f"want='{manifest}'",
     '[ "$got" = "$want" ] || { echo "blocked: nueravix-x/tools or nueravix-x/Makefile differ from the manifest" >&2; exit 2; }',
-    '[ -z "$(find nueravix-x -type l)" ] || { echo "blocked: symlink inside nueravix-x" >&2; exit 2; }',
-    '! ls -A nueravix-x | grep -qFx -e GNUmakefile -e makefile || { echo "blocked: unexpected GNUmakefile or makefile in nueravix-x" >&2; exit 2; }',
+    'l=$(find nueravix-x -type l) || { echo "blocked: cannot list nueravix-x" >&2; exit 2; }',
+    '[ -z "$l" ] || { echo "blocked: symlink inside nueravix-x" >&2; exit 2; }',
+    'e=$(ls -A nueravix-x) || { echo "blocked: cannot list nueravix-x" >&2; exit 2; }',
+    '! printf "%s\\n" "$e" | grep -qFx -e GNUmakefile -e makefile || { echo "blocked: unexpected GNUmakefile or makefile in nueravix-x" >&2; exit 2; }',
     f'a=$(python3 -I -S -B -c "{read_allow_hash}" 2>/dev/null)',
     f'[ "$a" = "{allow_hash}" ] || {{ echo "blocked: the allow rules in .claude/settings.json changed" >&2; exit 2; }}',
 ])
