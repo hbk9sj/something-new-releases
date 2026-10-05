@@ -1,11 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "Bash(make verify)",
-      "Bash(python3 tools/buffer.py check)",
-      "Bash(python3 tools/buffer.py sync)",
-      "Bash(python3 tools/buffer.py publish state/drafts/*)",
-      "Bash(python3 tools/push_image.py images/*)"
+      "Bash(make -C /home/user/something-new-releases/nueravix-x verify)",
+      "Bash(python3 /home/user/something-new-releases/nueravix-x/tools/buffer.py check)",
+      "Bash(python3 /home/user/something-new-releases/nueravix-x/tools/buffer.py sync)",
+      "Bash(python3 /home/user/something-new-releases/nueravix-x/tools/buffer.py publish /home/user/something-new-releases/nueravix-x/state/drafts/*)",
+      "Bash(python3 /home/user/something-new-releases/nueravix-x/tools/push_image.py images/*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "d=\"$CLAUDE_PROJECT_DIR\"; c=$(git -C \"$d\" status --porcelain --ignored -- nueravix-x/tools nueravix-x/Makefile | grep -v \"__pycache__/\"); if [ -n \"$c\" ] || ! git -C \"$d\" diff --quiet origin/bootstrap -- nueravix-x/tools nueravix-x/Makefile .claude/settings.json; then echo \"blocked: nueravix-x/tools, nueravix-x/Makefile or .claude/settings.json differ from origin/bootstrap\" >&2; exit 2; fi"
+          }
+        ]
+      }
     ]
   }
 }

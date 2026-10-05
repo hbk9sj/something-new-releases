@@ -31,6 +31,12 @@ before the classifier, and cloud sessions read the repo's `.claude/settings.json
 `make verify`, `python3 tools/buffer.py check|sync`, `python3 tools/buffer.py publish state/drafts/*`, and
 `python3 tools/push_image.py images/*`, each run from `nueravix-x/` as a single command (no `cd ... &&` prefix).
 
+## Addition 3 (5 Oct 2026): closing the hole the allow rules opened
+The commit security review flagged the relative allow rules: a misled run could edit `tools/buffer.py` (working-dir
+edits need no approval) or run a look-alike `tools/buffer.py` elsewhere, then execute it unreviewed. Now the rules
+name absolute paths, and a PreToolUse hook blocks every Bash command while `nueravix-x/tools`, `nueravix-x/Makefile`
+(tracked, untracked or ignored files, except `__pycache__/`) or `.claude/settings.json` differ from `origin/bootstrap`.
+
 ## Checks
 - `make verify` passes with new fixtures: image_ok (PASS) and image_bad (FAIL).
 - `push_image.py` tested once from this machine on a throwaway `claude/` branch: URL returns 200 image/png.
