@@ -73,8 +73,9 @@ image is still the only difference between them).
 
 ## What this does not fix
 
-- **The 8 posts already queued (6-13 Oct)** are on the old topics. They stay: the rules forbid editing or deleting
-  Buffer posts, and they are the "before" for comparison. The owner may cancel them in Buffer.
+- ~~The 8 posts already queued stay~~. **Changed 6 Oct, owner:** "delete the queue posts, and lets start from now
+  only". All 8 (7-13 Oct) were deleted in Buffer by hand and marked `"status": "deleted"` in history; the checker
+  now skips deleted posts (PR #12). The "before" for comparison is every earlier original (3-27 views each).
 - **Images from the cloud run**: `push_image.py` gets HTTP 403 there, so the image arm still waits.
 - **Bookmarks are not measurable by the routine.** Buffer's API returns reactions, comments, reposts, impressions,
   clicks and engagement rate, not bookmarks. The weekly review keeps judging on likes, replies and reposts per
@@ -82,8 +83,8 @@ image is still the only difference between them).
 
 ## How we judge it
 
-- Before: every original so far, 3-27 views, 0 reactions.
-- After: originals scheduled from 14 Oct onward. At the review of 26 Oct (about 8 new-topic posts at least 48 h
+- Before: every original up to 6 Oct, 3-27 views, 0 reactions.
+- After: originals scheduled from 7 Oct onward. At the review of 19 Oct (about 8 new-topic posts at least 48 h
   old): median impressions and reactions per impression, new topic mix vs the 6-13 Oct posts.
 - Keep if the median impressions at least double, or any post earns a reply or a follow. Otherwise record it as
   "did not help" in `state/lessons.md` and try the next idea (tool name first is already in; next is a 2-part
