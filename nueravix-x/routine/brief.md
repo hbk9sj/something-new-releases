@@ -52,10 +52,16 @@ the SHA-256 manifest it holds, so never edit them or add files there:
 Open slots = the times in `rules/editorial.md` over the next 10 days that have no scheduled post, limited so the
 channel never has more than 10 scheduled posts. If there are none, skip to step 5 (ideas only).
 
+Topic mix (owner decision, 6 Oct 2026): at least 3 of every 4 new originals come from pillar 1, *Builder tools*,
+in `rules/editorial.md`. Count the last 4 originals in `state/history.json` (scheduled or sent) plus today's picks;
+if the mix would drop below 3 in 4, pick only pillar 1 today.
+
 Candidates come from, in order:
 1. `state/ideas.md` "Ready to measure" entries that are still current.
-2. Exa: AI releases and claims from the last 72 hours that fit a pillar in `rules/editorial.md`. Prefer primary
-   sources (model card, repo, release notes, paper). Reject anything that touches the fixed topic rules.
+2. Exa: what builders are saying this week about Claude Code, Codex, Cursor, Gemini CLI, MCP servers and agent
+   SDKs (releases, changelogs, tips, complaints, claims with a number), then other AI releases and claims from the
+   last 72 hours that fit a pillar. Prefer primary sources (repo, release notes, changelog, model card, paper).
+   Reject anything that touches the fixed topic rules.
 3. Direct snapshots: PyPI and npm (JSON APIs work), public GitHub repos by `git clone` or raw.githubusercontent.com
    (GitHub's search API is blocked in cloud runs; find repos through Exa first) and, if reachable, Hugging Face
    (`curl -sI https://huggingface.co` returns 200; otherwise skip pillar 1 and 4's Hugging Face items and
@@ -69,8 +75,9 @@ to `state/ideas.md` with why it waited.
 For each picked topic, up to the budget:
 1. Write the script in `measurements/<finding_id>/` and run it. Save its printed output there as `output.txt`
    when it is small. Hand-check a sample (one sentence, one tensor, one file) and note what you checked.
-2. Draft in the house voice (`rules/editorial.md`): post 1 is the finding with its number; post 2, if needed,
-   is the method with source, version or commit, sample size and date.
+2. Draft in the house voice (`rules/editorial.md`): post 1 opens with the tool's name and gives the finding with
+   its number; post 2, if needed, is the method with source, version or commit, sample size and date. The last
+   part ends with one sentence a reader can act on (the setting, the cheaper option, the flag).
 3. Proof image, only for a draft in the image arm of the current experiment (`state/lessons.md`, "Current"):
    draw one chart from the measurement's own output with matplotlib (`pip install matplotlib` if missing), at
    1600x900 px, the headline number largest, a method line with source and date, "Decoding SI" in a corner. Save
