@@ -1,0 +1,10 @@
+[
+ {
+  "id": "q1",
+  "createdAt": "2026-10-06T13:30:00Z",
+  "text": "Nine MCP servers cost 36,320 tokens of tool definitions on 9 September. Same probe, same servers, 22 September: 38,738. Up 2,418 tokens in thirteen days, 6.7%. One server caused 2,094 of it, and its tool count did not move: 27 tools before, 27 after.",
+  "kind": "original",
+  "finding_id": "mcp-tool-defs-sep",
+  "status": "deleted"
+ }
+]

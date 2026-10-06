@@ -128,7 +128,7 @@ def main():
         for i, p in enumerate(d["parts"]):
             role = "reply" if d["kind"] == "reply" else ("original" if i == 0 else "thread")
             items.append((f"draft {d['id']} part {i+1}", f"d:{d['id']}", role, when(d["time"]), p, True))
-    hist = [h for h in hist if h.get("status") != "rejected"]   # Buffer refused it: it never went out
+    hist = [h for h in hist if h.get("status") not in ("rejected", "deleted")]   # refused, or deleted from the queue: it never went out
     for n, h in enumerate(hist):
         role = h.get("kind") or ("reply" if h.get("isReply") else "original")
         if role not in KINDS:
