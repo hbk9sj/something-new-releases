@@ -23,6 +23,7 @@ wrong, write the case in `state/proposals.md` and carry on without it.
 - Publish only through `tools/buffer.py`, which checks the X channel `serviceId` 2095836372565434368 on every call.
   Never touch any other channel in that Buffer account (LinkedIn, Instagram).
 - Never delete, edit or reschedule a Buffer post. A wrong post gets a visible correction, made by the owner.
+  (The owner may delete queued posts; a run marks them `"status": "deleted"` only when the owner's prompt says so.)
 - An `unknown` or `intent` entry in `state/history.json` blocks publishing until `sync` resolves it. Never resend.
 - At most 10 scheduled posts on the channel, ever (Buffer free plan).
 - `publish --now` posts one draft immediately. Use it only when the owner's prompt for that run asks for it.
@@ -43,7 +44,11 @@ If a topic's hook is any of the above, drop it; do not soften it.
 
 **Numbers**: every number in a post was printed by a script saved under `measurements/<finding_id>/`, run
 in this run or an earlier one, and a sample was hand-checked. A failed or doubtful measurement is logged in
-`state/runs.md` and not posted.
+`state/runs.md` and not posted. One exception, the **new-tools** lane (owner decision, 7 Oct 2026): a post about a
+newly launched everyday AI tool may state the tool's own published facts (price, free-plan limit, launch date,
+platforms) read from its official page, app store listing or repo, never from a promotional thread. Such a post
+says where the number comes from ("its pricing page lists ..."), never "we measured" or "we tested", and the
+source URL and the date read are saved in `measurements/<finding_id>/source.md`.
 
 **Voice**: no hashtags, no emoji, no engagement bait ("this changes everything", "thoughts?"), no follow-for-follow.
 Every post must survive a hostile screenshot.
