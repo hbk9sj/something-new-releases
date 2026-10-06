@@ -55,7 +55,7 @@ is understood from its own text, so a clear tool name in the words is what place
 
 ## What changes
 
-1. **Topic mix** (`rules/editorial.md`, artifact). New pillar 1, *Builder tools*: Claude Code, Codex, Cursor, Gemini
+1. **Topic mix** (`rules/editorial.md`, artifact). New pillar 0, *Builder tools*: Claude Code, Codex, Cursor, Gemini
    CLI, MCP servers, agent SDKs: anything a developer opens every day. At least 3 of every 4 new originals come
    from it. The old pillars (model files, X's algorithm, ecosystem counts) share the remaining quarter.
 2. **Open with the tool's name.** The first words of post 1 name the tool (Claude Code, an MCP server's name), not
@@ -101,5 +101,5 @@ image is still the only difference between them).
 ## Checks
 
 - `make verify` passes.
-- The next routine run (7 Oct 03:00 UTC) reads the new rules: its run entry should name pillar 1 for any post it
+- The next routine run (7 Oct 03:00 UTC) reads the new rules: its run entry should name pillar 0 for any post it
   schedules, or say why none qualified.
