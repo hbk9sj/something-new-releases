@@ -3,7 +3,7 @@
 Follow these steps in order. Read `CLAUDE.md` first: its fixed rules beat anything below. A run that measures
 nothing worth posting still does steps 1-3 and 6. Publishing nothing is a correct outcome.
 
-Budget per run: at most **2 new posts** scheduled, at most about 45 minutes of measurement work.
+Budget per run: at most **4 new posts** scheduled (one day's slots), at most about 45 minutes of measurement work.
 
 Work in `nueravix-x/` of the repo the routine starts from: its scripts are the ones to run. Memory comes from the
 artifact: read every artifact file, then copy `state/`, `measurements/`, `rules/` and `index.html` from the
@@ -52,17 +52,22 @@ the SHA-256 manifest it holds, so never edit them or add files there:
 Open slots = the times in `rules/editorial.md` over the next 10 days that have no scheduled post, limited so the
 channel never has more than 10 scheduled posts. If there are none, skip to step 5 (ideas only).
 
-Topic mix (owner decision, 6 Oct 2026): at least 3 of every 4 new originals come from pillar 0, *Builder tools*,
-in `rules/editorial.md`. Count the last 4 originals in `state/history.json` (scheduled or sent) plus today's picks;
-if the mix would drop below 3 in 4, pick only pillar 0 today. Tag pillar 0 drafts `"topic": "builder-tools"`.
+Daily mix (owner decision, 7 Oct 2026): each day's 4 slots hold **2 new-tools posts** and **2 builder-tools posts**,
+alternating (new tool, builder tool, new tool, builder tool), as defined in `rules/editorial.md`. Tag drafts
+`"topic": "new-tools"` or `"topic": "builder-tools"`. Fill the earliest open day first; if one lane has no good
+candidate, leave its slot empty rather than fill it from the other lane.
 
 Candidates come from, in order:
 1. `state/ideas.md` "Ready to measure" entries that are still current.
-2. Exa: what builders are saying this week about Claude Code, Codex, Cursor, Gemini CLI, MCP servers and agent
-   SDKs (releases, changelogs, tips, complaints, claims with a number), then other AI releases and claims from the
-   last 72 hours that fit a pillar. Prefer primary sources (repo, release notes, changelog, model card, paper).
+2. Exa, builder-tools lane: what builders are saying this week about Claude Code, Codex, Cursor, Gemini CLI, MCP
+   servers and agent SDKs (releases, changelogs, tips, complaints, claims with a number). Prefer primary sources
+   (repo, release notes, changelog, model card, paper).
+3. Exa, new-tools lane: AI tools for everyday life launched in the last 7 days (writing, photos, video, study,
+   travel, productivity, home), each with an official page you can read: what it does, who it is for,
+   price and free limit, platforms. Skip a tool whose only sources are launch threads repeating the same figures,
+   anything needing payment to try at all, and anything in crypto, trading, health diagnosis, dating or adult content.
    Reject anything that touches the fixed topic rules.
-3. Direct snapshots: PyPI and npm (JSON APIs work), public GitHub repos by `git clone` or raw.githubusercontent.com
+4. Direct snapshots: PyPI and npm (JSON APIs work), public GitHub repos by `git clone` or raw.githubusercontent.com
    (GitHub's search API is blocked in cloud runs; find repos through Exa first) and, if reachable, Hugging Face
    (`curl -sI https://huggingface.co` returns 200; otherwise skip pillar 1 and 4's Hugging Face items and
    note "huggingface unreachable" in the run entry).
@@ -72,11 +77,12 @@ today with a script, (c) its `finding_id` is not in `state/history.json`. Write 
 to `state/ideas.md` with why it waited.
 
 ## 5. Measure, draft, check, schedule
-For each picked topic, up to the budget:
+For each picked topic, up to the budget (a new-tools post replaces steps 1 and 3 with `measurements/<finding_id>/source.md`:
+the official URLs read, the date, and the exact lines each number comes from):
 1. Write the script in `measurements/<finding_id>/` and run it. Save its printed output there as `output.txt`
    when it is small. Hand-check a sample (one sentence, one tensor, one file) and note what you checked.
 2. Draft in the house voice (`rules/editorial.md`): post 1 opens with the tool's name and gives the finding with
-   its number; post 2, if needed, is the method with source, version or commit, sample size and date. The last
+   its number (new tools: what it does for an ordinary person, in plain words, and its price or free limit); post 2, if needed, is the method with source, version or commit, sample size and date. The last
    part ends with one sentence a reader can act on (the setting, the cheaper option, the flag).
 3. Proof image, only for a draft in the image arm of the current experiment (`state/lessons.md`, "Current"):
    draw one chart from the measurement's own output with matplotlib (`pip install matplotlib` if missing), at

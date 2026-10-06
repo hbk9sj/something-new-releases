@@ -104,3 +104,21 @@ image is still the only difference between them).
 - `make verify` passes.
 - The next routine run (7 Oct 03:00 UTC) reads the new rules: its run entry should name pillar 0 for any post it
   schedules, or say why none qualified.
+
+## Change 2 (7 Oct 2026, owner): four a day, two lanes
+
+Owner: "two daily new tools and 2 dev tools ... do it right now, delete all other scheduled". The owner chose this
+over "we tried it" (hands-on testing by the owner) and over developer tools alone, knowing the trade-off below.
+
+- **Mix**: each day 2 *new-tools* posts (AI tools for everyday life, launched in the last 7 days) and 2
+  *builder-tools* posts, alternating, in 4 daily slots (`rules/editorial.md`). Budget per run: 4 posts.
+- **Numbers in the new-tools lane** come from the tool's official page, app listing or repo, attributed in the post
+  ("its pricing page lists ..."), with the source saved in `measurements/<finding_id>/source.md`. Never "we tested".
+  The fixed Numbers rule in `CLAUDE.md` carries this exception.
+- **Queue**: the 2 builder-tools posts scheduled for 7 Oct were deleted by hand at the owner's request.
+- **Evidence and trade-off**: everyday-user AI posts collect about 3x the likes of builder posts but a quarter of the
+  bookmarks (PromptsLove, 21,864 posts); "new AI tool" posts are the most crowded and most AI-written corner of X
+  (Originality.ai, July 2026: about 80% likely AI in tech and AI), and many launch waves are paid and repeated word for
+  word (Lenk, 21 Sep 2026). The routine cannot try consumer apps (no logins, no phone), so these posts are read, not
+  measured. Risk: they look like everyone else's. The 19 Oct review compares the two lanes on impressions and reactions
+  per impression; a lane that trails clearly is dropped.
