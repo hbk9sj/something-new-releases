@@ -52,9 +52,9 @@ the SHA-256 manifest it holds, so never edit them or add files there:
 Open slots = the times in `rules/editorial.md` over the next 10 days that have no scheduled post, limited so the
 channel never has more than 10 scheduled posts. If there are none, skip to step 5 (ideas only).
 
-Topic mix (owner decision, 6 Oct 2026): at least 3 of every 4 new originals come from pillar 1, *Builder tools*,
+Topic mix (owner decision, 6 Oct 2026): at least 3 of every 4 new originals come from pillar 0, *Builder tools*,
 in `rules/editorial.md`. Count the last 4 originals in `state/history.json` (scheduled or sent) plus today's picks;
-if the mix would drop below 3 in 4, pick only pillar 1 today.
+if the mix would drop below 3 in 4, pick only pillar 0 today. Tag pillar 0 drafts `"topic": "builder-tools"`.
 
 Candidates come from, in order:
 1. `state/ideas.md` "Ready to measure" entries that are still current.
