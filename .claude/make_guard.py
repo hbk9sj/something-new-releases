@@ -36,7 +36,8 @@ guard = "; ".join([
     f'a=$(python3 -I -S -B -c "{read_allow_hash}" 2>/dev/null)',
     f'[ "$a" = "{allow_hash}" ] || {{ echo "blocked: the allow rules in .claude/settings.json changed" >&2; exit 2; }}',
 ])
-settings = {"permissions": {"allow": ALLOW},
+settings = {"effortLevel": "low",   # owner, 6 Oct 2026: the daily routine runs Sonnet 5.5 at low effort
+            "permissions": {"allow": ALLOW},
             "hooks": {"PreToolUse": [{"matcher": "Bash", "hooks": [{"type": "command", "command": guard}]}]}}
 Path(".claude/settings.json").write_text(json.dumps(settings, indent=2) + "\n")
 print(len(files), "files in manifest")

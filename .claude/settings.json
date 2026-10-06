@@ -1,4 +1,5 @@
 {
+  "effortLevel": "low",
   "permissions": {
     "allow": [
       "Bash(make -f /home/user/something-new-releases/nueravix-x/Makefile -C /home/user/something-new-releases/nueravix-x verify)",
