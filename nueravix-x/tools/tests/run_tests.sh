@@ -11,6 +11,7 @@ check 1 "min apart"             burst_one.json      history_burst.json    # the 
 check 1 "reuses"                baseline_5oct.json  empty_history.json    # a figure reused across replies
 check 0 "PASS"                  clean.json          empty_history.json    # distinct original and reply
 check 1 "already posted"        clean.json          history_nueravix.json # the 23 Sep finding again
+check 0 "PASS"                  clean.json          history_deleted.json  # deleted from the queue before it went out: frees its finding and slot
 check 0 "PASS"                  thread3.json        empty_history.json    # a 3-part thread is not a reply burst
 check 1 "replies in the 24 h"   window24.json       empty_history.json    # 6 replies within 24 h
 check 0 "PASS"                  dashes.json         empty_history.json    # 276 by X's count: dashes and curly quotes weigh 1
