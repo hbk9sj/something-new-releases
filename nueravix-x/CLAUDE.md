@@ -45,8 +45,10 @@ If a topic's hook is any of the above, drop it; do not soften it.
 **Numbers**: every number in a post was printed by a script saved under `measurements/<finding_id>/`, run
 in this run or an earlier one, and a sample was hand-checked. A failed or doubtful measurement is logged in
 `state/runs.md` and not posted. One exception, the **new-tools** lane (owner decision, 7 Oct 2026): a post about a
-newly launched everyday AI tool may state the tool's own published facts (price, free-plan limit, launch date,
-platforms) read from its official page, app store listing or repo, never from a promotional thread. Such a post
+newly launched everyday AI tool may state the tool's own published facts (price, free-plan limit, platforms) read
+from its official page, app store listing or repo, never from a promotional thread. That it launched in the last 7
+days may come from two independent news outlets (official pages rarely print a launch date); any number in the
+post still comes from the official page. Such a post
 says where the number comes from ("its pricing page lists ..."), never "we measured" or "we tested", and the
 source URL and the date read are saved in `measurements/<finding_id>/source.md`.
 

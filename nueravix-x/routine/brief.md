@@ -64,7 +64,8 @@ Candidates come from, in order:
    (repo, release notes, changelog, model card, paper).
 3. Exa, new-tools lane: AI tools for everyday life launched in the last 7 days (writing, photos, video, study,
    travel, productivity, home), each with an official page you can read: what it does, who it is for,
-   price and free limit, platforms. Skip a tool whose only sources are launch threads repeating the same figures,
+   price and free limit, platforms. The launch date may come from two independent news outlets. Search at least
+   5 queries (app launches, Product Hunt, App Store new, tech press this week) before leaving a slot empty. Skip a tool whose only sources are launch threads repeating the same figures,
    anything needing payment to try at all, and anything in crypto, trading, health diagnosis, dating or adult content.
    Reject anything that touches the fixed topic rules.
 4. Direct snapshots: PyPI and npm (JSON APIs work), public GitHub repos by `git clone` or raw.githubusercontent.com
