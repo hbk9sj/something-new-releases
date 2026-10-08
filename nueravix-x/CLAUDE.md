@@ -27,6 +27,9 @@ wrong, write the case in `state/proposals.md` and carry on without it.
 - An `unknown` or `intent` entry in `state/history.json` blocks publishing until `sync` resolves it. Never resend.
 - At most 10 scheduled posts on the channel, ever (Buffer free plan).
 - `publish --now` posts one draft immediately. Use it only when the owner's prompt for that run asks for it.
+- **Replies are posted by the owner, by hand.** A run never posts, likes, follows or sends a reply through any
+  tool; it only writes reply drafts to `state/replies/` (`routine/brief.md`, step 5b). X blocks software replies,
+  and automated engagement is what X bans accounts for.
 - Never log in anywhere, never handle a password. The Buffer key is added by the environment's proxy; never
   print, store or ask for it.
 

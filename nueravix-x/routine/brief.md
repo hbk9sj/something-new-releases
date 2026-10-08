@@ -3,7 +3,7 @@
 Follow these steps in order. Read `CLAUDE.md` first: its fixed rules beat anything below. A run that measures
 nothing worth posting still does steps 1-3 and 6. Publishing nothing is a correct outcome.
 
-Budget per run: at most **4 new posts** scheduled (one day's slots), at most about 45 minutes of measurement work.
+Budget per run: at most **2 new posts** scheduled (one day's slots) and at most **5 reply drafts** for the owner, at most about 45 minutes of measurement work.
 
 Work in `nueravix-x/` of the repo the routine starts from: its scripts are the ones to run. Memory comes from the
 artifact: read every artifact file, then copy `state/`, `measurements/`, `rules/` and `index.html` from the
@@ -29,6 +29,10 @@ the SHA-256 manifest it holds, so never edit them or add files there:
   them about once a day). Note any post with an unusual result (most likes, most impressions, zero impressions)
   in today's `state/runs.md` entry, with one line on why you think it happened, labelled as a guess.
 - If a metric Buffer does not supply for X (for example impressions), record it as missing. Never estimate it.
+- **Reach alarm** (owner, 8 Oct 2026): an original whose `metricsUpdatedAt` is at least 24 h after `sentAt` and
+  that shows **under 10 impressions** is a reach failure, never "nothing unusual". Start today's run entry with
+  `REACH ALARM: <n> posts under 10 impressions (<finding_ids>)`, and put the same line first in the final message.
+  A post whose numbers are still the send-time snapshot is "not refreshed yet", not judged.
 
 ## 3. Weekly review (Mondays, or when the last review in `state/lessons.md` is 7+ days old)
 1. `python3 tools/review.py --by experiment`, then `--by topic`, `--by format` and `--by slot`.
@@ -52,8 +56,8 @@ the SHA-256 manifest it holds, so never edit them or add files there:
 Open slots = the times in `rules/editorial.md` over the next 10 days that have no scheduled post, limited so the
 channel never has more than 10 scheduled posts. If there are none, skip to step 5 (ideas only).
 
-Daily mix (owner decision, 7 Oct 2026): each day's 4 slots hold **2 new-tools posts** and **2 builder-tools posts**,
-alternating (new tool, builder tool, new tool, builder tool), as defined in `rules/editorial.md`. Tag drafts
+Daily mix (owner decisions, 7 and 8 Oct 2026): each day's 2 slots hold **1 new-tools post** (13:30 UTC) and
+**1 builder-tools post** (17:30 UTC), as defined in `rules/editorial.md`. Pick the strongest candidate in each lane. Tag drafts
 `"topic": "new-tools"` or `"topic": "builder-tools"`. Fill the earliest open day first; if one lane has no good
 candidate, leave its slot empty rather than fill it from the other lane.
 
@@ -102,6 +106,22 @@ the official URLs read, the date, and the exact lines each number comes from):
    each post once, and updates `state/history.json`. If it stops with an unknown outcome, do not retry. For an
    image post it prints how many images Buffer attached; if that differs from 1, record it in the run entry.
 
+## 5b. Reply drafts for the owner (every run)
+The account is too new for its own posts to be seen; replies under other people's posts are how it gets found
+(plan, Change 3). A run **never posts a reply**: X blocks software replies, and the owner posts them by hand.
+1. Exa: find X posts from the last 12 hours about Claude Code, Codex, Cursor, Gemini CLI, MCP or a new everyday AI
+   tool, from accounts that talk to builders or AI users (roughly 5,000 to 200,000 followers when the page shows it).
+   Mirror pages (nitter, twitee, unrollnow) are fine for reading; record the `x.com/<user>/status/<id>` link and the
+   post's time. Skip anything that touches the fixed topic rules, giveaways, and posts already full of replies.
+2. Pick up to 5 where we can add one specific thing: a number from our own `measurements/` (cite the finding), a
+   fact from an official page or changelog (name it), or one concrete question about what they said. Never
+   "great post", never a link, never a pitch for our account, no hashtags or emoji, under 240 characters.
+3. Write them as `kind: "reply"` drafts in `state/drafts/replies-<YYYYMMDD>.json`, each starting `@<author>`, with
+   suggested times 15 minutes apart from 08:00 UTC, and run `python3 tools/check_x_draft.py
+   state/drafts/replies-<YYYYMMDD>.json state/history.json` until PASS. Never send them to Buffer.
+4. Write `state/replies/<YYYYMMDD>.md` for the owner: for each, the link, the author, the post's time, one line on
+   what they said, the reply text, and where our fact comes from. Fewer than 5 good targets: write fewer. None: say so.
+
 ## 6. Ideas, log, publish
 - Keep `state/ideas.md` useful: add 3 new measurable ideas, each with the planned script and data source;
   delete ideas older than 14 days that depended on news.
@@ -112,5 +132,5 @@ the official URLs read, the date, and the exact lines each number comes from):
   `nueravix-x/`, and `files` mapping each changed path to itself (new measurement files included). Publish only files under `state/`, `measurements/`, and `rules/editorial.md` or `rules/facts.md`
   if this run changed them. If the publish is refused because the artifact changed, read the named files again,
   merge your changes in, and publish once more.
-- Final message: three short lines. Posts scheduled (or "none, because ..."). What was learned. What needs the
-  owner, if anything.
+- Final message: the reach alarm line first if there is one, then three short lines. Posts scheduled (or "none,
+  because ..."). Reply drafts written (count, file). What was learned or what needs the owner.
