@@ -157,6 +157,16 @@ count, 0 reactions on all. The 8 Oct run logged this as "nothing unusual". X sea
 3. **Reach alarm.** Step 2 flags any original under 10 impressions once Buffer's numbers are at least 24 h past
    sending, and puts it first in the run entry and the final message. "Nothing unusual" is not allowed for it.
 
+**Correction (8 Oct 2026, owner: "this is a misconception").** The reply evidence above is self-reported case
+studies, mostly from sellers of reply tools, so "most early reach comes from replies" is overstated. Against it:
+X's published code gives the new-author boost to original posts, not replies, and filters out-of-network replies
+from For You (xpert.so, carryfeed.com, Jul-Aug 2026); one test account with 1 follower is reported at 59,000
+impressions in 48 hours from originals (xpert.so, n=1). So originals stay the main unit, and our 2-24 views are
+below what the boost alone should give, which points at the missing-from-search problem, not at a lack of replies.
+Reply drafts stay as an optional extra for the owner. "Replies must be posted by a person" holds only for replies
+to strangers on self-serve API tiers: X allows API replies when the author mentioned or quoted us, and Enterprise
+access is exempt (X developer changelog, 23 Feb 2026).
+
 **Limit.** The run starts at 03:00 UTC, so a target post is 5-17 h old when the owner reads the drafts. Reports say
 posts now peak 6-24 h in (bookmark.build), so this is workable but not the 15-minute window most guides advise.
 
