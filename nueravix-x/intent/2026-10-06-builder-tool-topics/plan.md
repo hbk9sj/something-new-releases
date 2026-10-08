@@ -122,3 +122,44 @@ over "we tried it" (hands-on testing by the owner) and over developer tools alon
   word (Lenk, 21 Sep 2026). The routine cannot try consumer apps (no logins, no phone), so these posts are read, not
   measured. Risk: they look like everyone else's. The 19 Oct review compares the two lanes on impressions and reactions
   per impression; a lane that trails clearly is dropped.
+
+## Change 3 (8 Oct 2026, owner): reach first, replies drafted for the owner
+
+Owner, 8 Oct: "we are not getting any views or engagements ... search web exa and fix all gaps", after the
+recommendation below. Supersedes the "four a day" part of Change 2; the two lanes stay.
+
+**Problem.** 9 originals sent 5-8 Oct. Buffer, 8 Oct 03:04 UTC: 24, 5 and 2 impressions on the posts old enough to
+count, 0 reactions on all. The 8 Oct run logged this as "nothing unusual". X search returns none of our posts
+(Apify `from:decodingsi`, 0 rows; control account 5 rows; 7 Oct). The weekly review cannot learn from zero reactions.
+
+**Evidence** (Exa, 8 Oct 2026; outside reports, correlation or anecdote unless stated):
+- Accounts that grew from near zero got most early reach from replies under bigger accounts, with 2-3 originals a
+  day on the side: 0 to 560K impressions in 10 days, about 80% from replies (Indie Hackers, Apr 2026); 857 to 1,400
+  followers with 15-25 replies a day (bookmark.build, Apr 2026); 35 replies, 7,847 impressions, 2 of them half the
+  total (rakeshreddy.dev, Jan 2026, raw data).
+- Quality beats volume: 5-8 specific, early replies a day (reachmore.co, May 2026); 8-12 a day at the start
+  (xpert.so). Generic replies are filtered; X removed about 42,000 chatbot reply accounts in July 2026 (Nikita Bier,
+  quoted by futuretweets.com, 6 Oct 2026).
+- X blocks programmatic replies unless the author mentioned or quoted us (since 23 Feb 2026). Replies must be posted
+  by a person.
+- New accounts: 1-3 posts a day for the first two weeks (opentweet.io, Feb 2026). Search limits usually lift in 2-7
+  days once the trigger stops (notpeople.ai, ~2,000 test accounts; ipme.co).
+- Scheduling through an authorised app carries no ranking penalty in X's published code (sent2x.com, futuretweets.com).
+- Premium (the account now has the blue check) ranks the account's replies higher in conversations (fireply.ai,
+  conbersa.ai). It does not lift its originals much.
+
+**What changes**
+1. **Two originals a day**, 13:30 UTC new tool, 17:30 UTC builder tool (`rules/editorial.md`, `routine/brief.md`).
+2. **Reply drafts for the owner.** Each run writes up to 5 reply drafts under fresh X posts from accounts in the
+   niche, in `state/replies/<YYYYMMDD>.md`, checked by `tools/check_x_draft.py` (its house limits: 5 a day, 10 min
+   apart, no near-copies, one figure per day). The owner reads, edits and posts them by hand. A run never posts,
+   likes or follows. Added to the fixed rules in `CLAUDE.md`.
+3. **Reach alarm.** Step 2 flags any original under 10 impressions once Buffer's numbers are at least 24 h past
+   sending, and puts it first in the run entry and the final message. "Nothing unusual" is not allowed for it.
+
+**Limit.** The run starts at 03:00 UTC, so a target post is 5-17 h old when the owner reads the drafts. Reports say
+posts now peak 6-24 h in (bookmark.build), so this is workable but not the 15-minute window most guides advise.
+
+**How we judge it** (19 Oct review, unchanged date): impressions on originals sent from 9 Oct vs the 5-8 Oct posts;
+whether `from:decodingsi` returns our posts; the owner's count of replies posted and followers gained (X's own
+analytics; the routine cannot read them).
